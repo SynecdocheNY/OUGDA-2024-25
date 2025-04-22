@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://7tjbqnh5wr3e"]
+
+[ext_resource type="AudioStream" uid="uid://dnvdh8cxlmpt3" path="res://Assets/My Song WAV.wav" id="1_rjbch"]
+[ext_resource type="Script" path="res://Scripts/audio_player.gd" id="1_tvbcd"]
+
+[node name="AudioPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_rjbch")
+volume_db = -10.0
+autoplay = true
+script = ExtResource("1_tvbcd")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

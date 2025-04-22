@@ -1,0 +1,137 @@
+[gd_scene load_steps=22 format=3 uid="uid://00i2xax1ld2t"]
+
+[ext_resource type="Script" path="res://Scripts/Level.gd" id="1_ifxyl"]
+[ext_resource type="Texture2D" uid="uid://di12d7xdomi4b" path="res://Assets/Rescaled Assets/Grey_Bubble_1.png" id="2_khkxv"]
+[ext_resource type="Texture2D" uid="uid://bukipk2mp3ik1" path="res://Assets/Rescaled Assets/Gray_Popped_1.png" id="3_0lbn4"]
+[ext_resource type="Texture2D" uid="uid://bmql8ne0kk7kf" path="res://Assets/Rescaled Assets/Yellow_Bubble_1.png" id="4_i7jbt"]
+[ext_resource type="Texture2D" uid="uid://hq5w6dia2le8" path="res://Assets/Rescaled Assets/Yello_Popped_1.png" id="5_0cl1a"]
+[ext_resource type="Texture2D" uid="uid://b6gufsuq0mbid" path="res://Assets/Rescaled Assets/Green_Bubble_1.png" id="6_fvs3w"]
+[ext_resource type="Texture2D" uid="uid://gw3ctenktre5" path="res://Assets/Rescaled Assets/_Pink_Popped_1 1.png" id="7_4dbho"]
+[ext_resource type="Texture2D" uid="uid://buu33fgcp42p0" path="res://Assets/Rescaled Assets/Pink_Bubble_1.png" id="8_3w5f7"]
+[ext_resource type="Texture2D" uid="uid://dleo0d2twpkf8" path="res://Assets/Rescaled Assets/_Pink_Popped_1.png" id="9_4cyag"]
+[ext_resource type="Script" path="res://Scripts/Gameplay.gd" id="10_ybyxv"]
+[ext_resource type="Texture2D" uid="uid://bhfbdfsxavkan" path="res://Assets/Big Assets/IMG_0500.PNG" id="11_ycuom"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5mfj4"]
+texture = ExtResource("2_khkxv")
+texture_region_size = Vector2i(89, 89)
+1:3/0 = 0
+4:5/0 = 0
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hx5w6"]
+texture = ExtResource("3_0lbn4")
+texture_region_size = Vector2i(89, 89)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ng716"]
+texture = ExtResource("4_i7jbt")
+texture_region_size = Vector2i(89, 89)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5cgca"]
+texture = ExtResource("5_0cl1a")
+texture_region_size = Vector2i(89, 89)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xc0u2"]
+texture = ExtResource("6_fvs3w")
+texture_region_size = Vector2i(89, 89)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vnyqk"]
+texture = ExtResource("7_4dbho")
+texture_region_size = Vector2i(90, 90)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c4cp4"]
+texture = ExtResource("8_3w5f7")
+texture_region_size = Vector2i(88, 88)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0w4kc"]
+texture = ExtResource("9_4cyag")
+texture_region_size = Vector2i(88, 88)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_f5jbt"]
+tile_shape = 3
+tile_offset_axis = 1
+tile_size = Vector2i(88, 88)
+sources/3 = SubResource("TileSetAtlasSource_ng716")
+sources/4 = SubResource("TileSetAtlasSource_5cgca")
+sources/1 = SubResource("TileSetAtlasSource_5mfj4")
+sources/2 = SubResource("TileSetAtlasSource_hx5w6")
+sources/5 = SubResource("TileSetAtlasSource_xc0u2")
+sources/6 = SubResource("TileSetAtlasSource_vnyqk")
+sources/7 = SubResource("TileSetAtlasSource_c4cp4")
+sources/8 = SubResource("TileSetAtlasSource_0w4kc")
+
+[sub_resource type="LabelSettings" id="LabelSettings_3i3tr"]
+font_size = 48
+
+[node name="Level3" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ifxyl")
+LevelNum = 2
+Size = Vector2i(10, 18)
+Start = Vector2i(2, 9)
+Goal = Array[Vector2i]([Vector2i(2, 2), Vector2i(8, 16)])
+TimeLength = 0.667
+LevelTime = 32.0
+PopReq = true
+PopCount = 25
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 65.0
+offset_right = 1921.0
+offset_bottom = 1082.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="CenterContainer"]
+tile_set = SubResource("TileSet_f5jbt")
+script = ExtResource("10_ybyxv")
+
+[node name="Timer" type="Timer" parent="CenterContainer/TileMapLayer"]
+
+[node name="spritetimer" type="Timer" parent="CenterContainer/TileMapLayer/Timer"]
+
+[node name="LevelTime" type="Timer" parent="CenterContainer/TileMapLayer"]
+
+[node name="HBoxContainerR" type="HBoxContainer" parent="CenterContainer/TileMapLayer/LevelTime"]
+offset_left = 1804.0
+offset_top = 7.0
+offset_right = 1899.0
+offset_bottom = 74.0
+
+[node name="TimeCount" type="Label" parent="CenterContainer/TileMapLayer/LevelTime/HBoxContainerR"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_3i3tr")
+
+[node name="HBoxContainerL" type="HBoxContainer" parent="CenterContainer/TileMapLayer/LevelTime"]
+offset_right = 812.0
+offset_bottom = 67.0
+
+[node name="PopReq" type="Label" parent="CenterContainer/TileMapLayer/LevelTime/HBoxContainerL"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_3i3tr")
+
+[node name="FinishTimer" type="Timer" parent="CenterContainer/TileMapLayer"]
+
+[node name="BPMIndicator" type="Sprite2D" parent="."]
+position = Vector2(777, -163)
+scale = Vector2(0.046, 0.045)
+texture = ExtResource("11_ycuom")
+
+[connection signal="timeout" from="CenterContainer/TileMapLayer/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="CenterContainer/TileMapLayer/Timer" to="CenterContainer/TileMapLayer" method="_on_timer_timeout"]
+[connection signal="timeout" from="CenterContainer/TileMapLayer/Timer/spritetimer" to="." method="_on_spritetimer_timeout"]
+[connection signal="timeout" from="CenterContainer/TileMapLayer/LevelTime" to="CenterContainer/TileMapLayer" method="_on_level_time_timeout"]
+[connection signal="timeout" from="CenterContainer/TileMapLayer/FinishTimer" to="CenterContainer/TileMapLayer" method="_on_finish_timer_timeout"]
+[connection signal="timeout" from="CenterContainer/TileMapLayer/FinishTimer" to="BPMIndicator" method="_on_finish_timer_timeout"]

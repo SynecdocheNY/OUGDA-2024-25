@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://y0eekayymkl6"]
+
+[ext_resource type="Script" path="res://Scripts/StartScreen.gd" id="1_l63yn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ii1r3"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_pm38l"]
+font_size = 96
+
+[sub_resource type="LabelSettings" id="LabelSettings_wl7x6"]
+font_size = 64
+
+[node name="Start" type="Node2D"]
+script = ExtResource("1_l63yn")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_left = 12.0
+offset_top = 760.0
+offset_right = 1927.0
+offset_bottom = 914.0
+
+[node name="SpaceStart" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "Press Space to Start"
+label_settings = SubResource("LabelSettings_ii1r3")
+horizontal_alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+offset_right = 1914.0
+offset_bottom = 375.0
+
+[node name="Title" type="Label" parent="CenterContainer2"]
+layout_mode = 2
+text = "Bubble Wrap Pop"
+label_settings = SubResource("LabelSettings_pm38l")
+horizontal_alignment = 1
+
+[node name="CenterContainer3" type="CenterContainer" parent="."]
+offset_left = 5.0
+offset_top = 304.0
+offset_right = 1929.0
+offset_bottom = 739.0
+
+[node name="Instructions" type="Label" parent="CenterContainer3"]
+layout_mode = 2
+text = "Pop the bubbles on your path to the green goal bubble, and 
+make sure to watch your timing! Each level has a time limit,
+and there's a cooldown after each move. Some levels also
+require a certain amount of pops along the way!"
+label_settings = SubResource("LabelSettings_wl7x6")
+horizontal_alignment = 1

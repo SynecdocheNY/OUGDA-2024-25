@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://uf5et6ou0yk3"]
+
+[ext_resource type="Texture2D" uid="uid://dkfkfbk6dstti" path="res://Assets/Untitled_Artwork.png" id="1_deo04"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ikvfy"]
+font_size = 256
+outline_size = 21
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0heak"]
+font_size = 48
+
+[node name="Win" type="Node2D"]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_top = 116.0
+offset_right = 1917.0
+offset_bottom = 1072.0
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "Win"
+label_settings = SubResource("LabelSettings_ikvfy")
+
+[node name="UntitledArtwork" type="Sprite2D" parent="CenterContainer"]
+position = Vector2(970.5, 477.5)
+scale = Vector2(1.927, 1.46942)
+texture = ExtResource("1_deo04")
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+offset_right = 1927.0
+offset_bottom = 113.0
+
+[node name="Label" type="Label" parent="CenterContainer2"]
+layout_mode = 2
+text = "Level Design: Hazel                     Programming: Eli                     Art and Music: Max"
+label_settings = SubResource("LabelSettings_0heak")
